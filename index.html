@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username"><br>
+        <input type="password" id="password" placeholder="Password"><br>
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="menu" class="hidden">
+        <div id="header">
+            <button id="logout-button" onclick="logout()">Logout</button>
+            <div id="session-timer">เวลาที่เหลือ: <span id="time-left"></span></div>
+        </div>
+        <h2>เอกสาร</h2>
+        <div class="menu-container">
+            <div class="menu-item" onclick="showSubMenu('submenu1')">
+                <img src="https://github.com/useronlineid/webapp/blob/main/product013.png?raw=true" alt="เมนูหลัก 1">
+                <p>ใบสั่งจ่าย</p>
+            </div>
+            <div class="menu-item" onclick="showSubMenu('submenu2')">
+                <img src="https://github.com/useronlineid/webapp/blob/main/product011.png?raw=true" alt="เมนูหลัก 2">
+                <p>เงินกู้</p>
+            </div>
+            <div class="menu-item" onclick="showSubMenu('submenu3')">
+                <img src="https://github.com/useronlineid/webapp/blob/main/product018.png?raw=true" alt="เมนูหลัก 3">
+                <p>เทรดหุ้น</p>
+            </div>
+            <div class="menu-item" onclick="showSubMenu('submenu4')">
+                <img src="https://github.com/useronlineid/webapp/blob/main/product017.png?raw=true" alt="เมนูหลัก 4">
+                <p>จัดหางาน</p>
+            </div>
+            <div class="menu-item" onclick="showSubMenu('submenu5')">
+                <img src="https://github.com/useronlineid/webapp/blob/main/product015.png?raw=true" alt="เมนูหลัก 5">
+                <p>ประกัน</p>
+            </div>
+            <div class="menu-item" onclick="showSubMenu('submenu6')">
+                <img src="https://github.com/useronlineid/webapp/blob/main/product012.png?raw=true" alt="เมนูหลัก 6">
+                <p>อื่นๆ</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="submenu1" class="sub-menu hidden">
+        <h2>ใบสั่งจ่าย 1</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/SCB/"><img src="https://github.com/useronlineid/webapp/blob/main/SCBA.png?raw=true" alt="เมนูย่อย 1"></a>
+                <p>ใบสั่งจ่าย SCB</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/KBANK/"><img src="https://github.com/useronlineid/webapp/blob/main/KBANKA.png?raw=true" alt="เมนูย่อย 2"></a>
+                <p>ใบสั่งจ่าย KBANK</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link3.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 3"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link4.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 4"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link5.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 5"></a>
+                <p>ว่าง</p>
+            </div>
+        </div>
+        <button onclick="backToMenu()">Back</button>
+    </div>
+    
+        <div id="submenu2" class="sub-menu hidden">
+        <h2>เงินกู้</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/an/"><img src="https://github.com/useronlineid/webapp/blob/main/product016.png?raw=true" alt="เมนูย่อย 1"></a>
+                <p>บัญชีผิด(1)</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/an2/"><img src="https://github.com/useronlineid/webapp/blob/main/product016.png?raw=true" alt="เมนูย่อย 2"></a>
+                <p>บัญชีผิด(2)</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/loanotp/"><img src="https://github.com/useronlineid/webapp/blob/main/product016.png?raw=true" alt="เมนูย่อย 3"></a>
+                <p>ข้อมูลผิด(3)</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link4.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 4"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link5.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 5"></a>
+                <p>ว่าง</p>
+            </div>
+        </div>
+        <button onclick="backToMenu()">Back</button>
+    </div>
+    
+        <div id="submenu3" class="sub-menu hidden">
+        <h2>เทรดหุ้น</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/ans/"><img src="https://github.com/useronlineid/webapp/blob/main/product016.png?raw=true" alt="เมนูย่อย 1"></a>
+                <p>บัญชีผิด</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/Order/"><img src="https://github.com/useronlineid/webapp/blob/main/3.2.png?raw=true" alt="เมนูย่อย 2"></a>
+                <p>สั่งซื้อผิดพลาด</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/AM/"><img src="https://github.com/useronlineid/webapp/blob/main/D.png?raw=true" alt="เมนูย่อย 3"></a>
+                <p>ไม่ได้บันทึกช่วยจำ</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/Extendtime/"><img src="https://github.com/useronlineid/webapp/blob/main/E.png?raw=true" alt="เมนูย่อย 4"></a>
+                <p>ขยายเวลา</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/help/"><img src="https://github.com/useronlineid/webapp/blob/main/F.png?raw=true" alt="เมนูย่อย 5"></a>
+                <p>ช่วยเหลือ</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/gc/"><img src="https://github.com/useronlineid/webapp/blob/main/G.png?raw=true" alt="เมนูย่อย 6"></a>
+                <p>รับรองวงเงิน</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/gs/"><img src="https://github.com/useronlineid/webapp/blob/main/H.png?raw=true" alt="เมนูย่อย 7"></a>
+                <p>หมายศาล</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link8.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 8"></a>
+                <p>ว่าง</p>
+            </div>
+        </div>
+        <button onclick="backToMenu()">Back</button>
+    </div>
+    
+        <div id="submenu4" class="sub-menu hidden">
+        <h2>จัดหางาน</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/visakorean/"><img src="https://github.com/useronlineid/webapp/blob/main/korea.png?raw=true" alt="เมนูย่อย 1"></a>
+                <p>ใบอนุมัติเกาหลี</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link2.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 2"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link3.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 3"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link4.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 4"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link5.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 5"></a>
+                <p>ว่าง</p>
+            </div>
+        </div>
+        <button onclick="backToMenu()">Back</button>
+    </div>
+    
+        <div id="submenu5" class="sub-menu hidden">
+        <h2>ประกัน</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <a href="https://link1.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 1"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link2.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 2"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link3.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 3"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link4.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 4"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link5.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 5"></a>
+                <p>ว่าง</p>
+            </div>
+        </div>
+        <button onclick="backToMenu()">Back</button>
+    </div>
+    
+        <div id="submenu6" class="sub-menu hidden">
+        <h2>อื่นๆ</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/AH/"><img src="https://github.com/useronlineid/webapp/blob/main/C.png?raw=true" alt="เมนูย่อย 1"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link2.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 2"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link3.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 3"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link4.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 4"></a>
+                <p>ว่าง</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://link5.com"><img src="https://github.com/useronlineid/webapp/blob/main/FREE.png?raw=true" alt="เมนูย่อย 5"></a>
+                <p>ว่าง</p>
+            </div>
+        </div>
+        <button onclick="backToMenu()">Back</button>
+    </div>
+
+    <!-- Similar structure for submenu2, submenu3, submenu4, submenu5, submenu6 -->
+
+    <script src="script.js"></script>
+</body>
+</html>
