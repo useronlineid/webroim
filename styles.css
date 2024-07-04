@@ -36,7 +36,7 @@ h1, h2 {
 }
 
 #login input {
-    width: 100%;
+    width: 88%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -44,7 +44,7 @@ h1, h2 {
 }
 
 #login button {
-    width: 100%;
+    width: 95%;
     padding: 15px;
     background-color: #4CAF50;
     color: white;
