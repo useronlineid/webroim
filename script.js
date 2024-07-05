@@ -1,5 +1,42 @@
+const allowedIPs = ['38.47.37.8','']; // เพิ่ม IP ที่อนุญาตที่นี่
+
+async function checkIP() {
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        const userIP = data.ip;
+
+        if (allowedIPs.includes(userIP)) {
+            document.getElementById('content').classList.remove('hidden');
+        } else {
+            document.getElementById('restricted-access').classList.remove('hidden');
+        }
+    } catch (error) {
+        console.error('Error fetching IP address:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    checkIP();
+
+    const loginTime = localStorage.getItem('loginTime');
+    const duration = localStorage.getItem('duration');
+    const username = localStorage.getItem('username');
+
+    if (loginTime && duration && username) {
+        const currentTime = new Date().getTime();
+        if (currentTime < parseInt(loginTime, 10) + parseInt(duration, 10)) {
+            document.getElementById('login').classList.add('hidden');
+            document.getElementById('menu').classList.remove('hidden');
+            checkSession();
+        } else {
+            logout();
+        }
+    }
+});
+
 const users = {
-    admin: { password: '123456', duration: 60 * 60 * 1000 },   // 1 นาที
+    admin: { password: '123456', duration: 1 * 60 * 1000 },   // 1 นาที
     dx: { password: '164626', duration: 60 * 180 * 1000 } // 60 นาที
 };
 
@@ -56,32 +93,13 @@ function updateTimeLeft() {
 
     if (timeLeft <= 0) {
         logout();
-        alert('กรุณาเข้าสู่ระบบใหม่อีกครั้ง');
+        alert('หมดเวลาการใช้งานแล้ว กรุณาเข้าสู่ระบบใหม่');
     } else {
-        const minutes = Math.floor(timeLeft / 60000);
-        const seconds = ((timeLeft % 60000) / 1000).toFixed(0);
-        document.getElementById('time-left').innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        document.getElementById('time-left').innerText = Math.floor(timeLeft / 1000) + ' วินาที';
     }
 }
 
 function checkSession() {
     updateTimeLeft();
-    setInterval(updateTimeLeft, 1000);
+    setInterval(updateTimeLeft, 1000); // Update every second
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const loginTime = localStorage.getItem('loginTime');
-    const duration = localStorage.getItem('duration');
-    const username = localStorage.getItem('username');
-
-    if (loginTime && duration && username) {
-        const currentTime = new Date().getTime();
-        if (currentTime < parseInt(loginTime, 10) + parseInt(duration, 10)) {
-            document.getElementById('login').classList.add('hidden');
-            document.getElementById('menu').classList.remove('hidden');
-            checkSession();
-        } else {
-            logout();
-        }
-    }
-});
