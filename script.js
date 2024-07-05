@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const users = {
-    admin: { password: '123456', duration: 1 * 60 * 1000 },   // 1 นาที
+    admin: { password: '123456', duration: 60 * 60 * 1000 },   // 1 นาที
     dx: { password: '164626', duration: 60 * 180 * 1000 } // 60 นาที
 };
 
