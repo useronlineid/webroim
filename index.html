@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Management System</title>
     <link rel="stylesheet" href="styles.css">
+        <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 </head>
 <body>
-    <div id="login">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username"><br>
-        <input type="password" id="password" placeholder="Password"><br>
-        <button onclick="login()">Login</button>
+    <div id="restricted-access" class="hidden">
+        <h2>Access Denied</h2>
+        <p>You do not have permission to access the website.</p>
     </div>
+
+    <div id="content" class="hidden">
+        <div id="login">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username"><br>
+            <input type="password" id="password" placeholder="Password"><br>
+            <button onclick="login()">Login</button>
+        </div>
 
     <div id="menu" class="hidden">
         <div id="header">
