@@ -1,43 +1,8 @@
-const allowedIPs = ['38.47.37.8','38.47.37.189','202.178.115.5','147.50.111.12','116.212.158.174']; 
-
-async function checkIP() {
-    try {
-        const response = await fetch('https://api.ipify.org?format=json');
-        const data = await response.json();
-        const userIP = data.ip;
-
-        if (allowedIPs.includes(userIP)) {
-            document.getElementById('content').classList.remove('hidden');
-        } else {
-            document.getElementById('restricted-access').classList.remove('hidden');
-        }
-    } catch (error) {
-        console.error('Error fetching IP address:', error);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    checkIP();
-
-    const loginTime = localStorage.getItem('loginTime');
-    const duration = localStorage.getItem('duration');
-    const username = localStorage.getItem('username');
-
-    if (loginTime && duration && username) {
-        const currentTime = new Date().getTime();
-        if (currentTime < parseInt(loginTime, 10) + parseInt(duration, 10)) {
-            document.getElementById('login').classList.add('hidden');
-            document.getElementById('menu').classList.remove('hidden');
-            checkSession();
-        } else {
-            logout();
-        }
-    }
-});
-
 const users = {
-    admin: { password: '123456', duration: 60 * 60 * 1000 },   // 1 นาที
-    dx: { password: '164626', duration: 60 * 180 * 1000 } // 60 นาที
+    admin168: { password: '123456', duration: 60 * 60 * 1000, maxSessions: 1 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
+    admin666: { password: '123456', duration: 60 * 60 * 1000, maxSessions: 2 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
+    admin888: { password: '123456', duration: 60 * 180 * 1000, maxSessions: 10 },   // 3 ชั่วโมง, จำกัดการใช้งาน 10 คน
+    dx: { password: '164626', duration: Infinity, maxSessions: Infinity }   // ไม่จำกัดเวลา, ไม่จำกัดจำนวนคน
 };
 
 function login() {
@@ -45,8 +10,28 @@ function login() {
     const password = document.getElementById('password').value;
 
     if (users[username] && users[username].password === password) {
+        const sessions = JSON.parse(localStorage.getItem('sessions')) || {};
+        const currentTime = new Date().getTime();
+
+        // Remove expired sessions
+        Object.keys(sessions).forEach(user => {
+            sessions[user] = sessions[user].filter(session => session + users[user].duration > currentTime);
+        });
+
+        // Check if max sessions exceeded
+        if (sessions[username] && sessions[username].length >= users[username].maxSessions) {
+            alert(`ยูสเซอร์ ${username} มีการเข้าสู่ระบบเต็มจำนวนแล้ว`);
+            return;
+        }
+
         const loginTime = new Date().getTime();
         const duration = users[username].duration;
+
+        // Add new session
+        if (!sessions[username]) sessions[username] = [];
+        sessions[username].push(loginTime);
+
+        localStorage.setItem('sessions', JSON.stringify(sessions));
         localStorage.setItem('loginTime', loginTime);
         localStorage.setItem('username', username);
         localStorage.setItem('duration', duration);
@@ -75,6 +60,13 @@ function backToMenu() {
 }
 
 function logout() {
+    const username = localStorage.getItem('username');
+    const loginTime = parseInt(localStorage.getItem('loginTime'), 10);
+
+    const sessions = JSON.parse(localStorage.getItem('sessions')) || {};
+    sessions[username] = sessions[username].filter(session => session !== loginTime);
+
+    localStorage.setItem('sessions', JSON.stringify(sessions));
     localStorage.removeItem('loginTime');
     localStorage.removeItem('username');
     localStorage.removeItem('duration');
@@ -93,13 +85,32 @@ function updateTimeLeft() {
 
     if (timeLeft <= 0) {
         logout();
-        alert('หมดเวลาการใช้งานแล้ว กรุณาเข้าสู่ระบบใหม่');
+        alert('กรุณาเข้าสู่ระบบใหม่อีกครั้ง');
     } else {
-        document.getElementById('time-left').innerText = Math.floor(timeLeft / 1000) + ' วินาที';
+        const minutes = Math.floor(timeLeft / 60000);
+        const seconds = ((timeLeft % 60000) / 1000).toFixed(0);
+        document.getElementById('time-left').innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     }
 }
 
 function checkSession() {
     updateTimeLeft();
-    setInterval(updateTimeLeft, 1000); // Update every second
+    setInterval(updateTimeLeft, 1000);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loginTime = localStorage.getItem('loginTime');
+    const duration = localStorage.getItem('duration');
+    const username = localStorage.getItem('username');
+
+    if (loginTime && duration && username) {
+        const currentTime = new Date().getTime();
+        if (currentTime < parseInt(loginTime, 10) + parseInt(duration, 10)) {
+            document.getElementById('login').classList.add('hidden');
+            document.getElementById('menu').classList.remove('hidden');
+            checkSession();
+        } else {
+            logout();
+        }
+    }
+});
