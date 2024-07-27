@@ -117,6 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// ตัวแปรเพื่อเก็บสถานะการเข้าสู่ระบบสำเร็จสำหรับ submenu8
+let isSubmenu8Unlocked = false;
+
 document.getElementById('submenu8-pass').addEventListener('input', function() {
     const password = this.value;
     const errorElement = document.getElementById('password-error');
@@ -125,6 +128,7 @@ document.getElementById('submenu8-pass').addEventListener('input', function() {
         if (password === '164626') {
             document.getElementById('submenu8').classList.remove('hidden');
             document.getElementById('submenu8-password').classList.add('hidden');
+            isSubmenu8Unlocked = true; // ตั้งสถานะเป็นเข้าระบบสำเร็จ
         } else {
             errorElement.classList.remove('hidden');
             setTimeout(() => {
@@ -146,7 +150,11 @@ function showSubMenu(submenuId) {
     document.querySelectorAll('.sub-menu').forEach(submenu => submenu.classList.add('hidden'));
 
     if (submenuId === 'submenu8') {
-        document.getElementById('submenu8-password').classList.remove('hidden');
+        if (isSubmenu8Unlocked) {
+            document.getElementById('submenu8').classList.remove('hidden');
+        } else {
+            document.getElementById('submenu8-password').classList.remove('hidden');
+        }
     } else {
         document.getElementById(submenuId).classList.remove('hidden');
     }
