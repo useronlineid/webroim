@@ -49,6 +49,10 @@
                 <img src="https://github.com/useronlineid/webapp/blob/main/product012.png?raw=true" alt="เมนูหลัก 7">
                 <p>อื่นๆ</p>
             </div>
+            <div class="menu-item" onclick="showSubMenu('submenu8')">
+                <img src="https://github.com/useronlineid/webapp/blob/main/product07.png?raw=true" alt="เมนูหลัก 8">
+                <p>Personal</p>
+            </div>
         </div>
     </div>
 
@@ -275,6 +279,62 @@
     </div>
 
     <!-- Similar structure for submenu2, submenu3, submenu4, submenu5, submenu6 -->
+
+
+   <div id="submenu8-password" class="sub-menu hidden">
+        <h2>Enter Password for Menu 8</h2>
+        <input type="password" id="submenu8-pass" placeholder="Enter Password"><br>
+        <p id="password-error" class="hidden">Incorrect password. Please try again.</p>
+        <button onclick="validatePassword()">Submit</button>
+        <button onclick="backToMenu()">Back</button>
+    </div>
+
+    <div id="submenu8" class="sub-menu hidden">
+        <h2>เมนูลับ 8</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/DSlip-K1/"><img src="https://github.com/useronlineid/webroim/blob/main/K1.png?raw=true" alt="เมนูย่อย 1"></a>
+                <p>สลิปกสิกรไทย</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/DSlip-K2/"><img src="https://github.com/useronlineid/webroim/blob/main/K1.png?raw=true" alt="เมนูย่อย 2"></a>
+                <p>สลิปกสิกรไทย-บันทึก</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/DSlip-B1/"><img src="https://github.com/useronlineid/webapp/blob/main/T1.png?raw=true" alt="เมนูย่อย 3"></a>
+                <p>สลิปกรุงเทพ</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/DSlip-B2/"><img src="https://github.com/useronlineid/webapp/blob/main/T1.png?raw=true" alt="เมนูย่อย 4"></a>
+                <p>สลิปกรุงเทพ-บันทึก</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/DSlip-T1/"><img src="https://github.com/useronlineid/webapp/blob/main/TT1.png?raw=true" alt="เมนูย่อย 5"></a>
+                <p>สลิปธนชาต</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/DSlip-T2/"><img src="https://github.com/useronlineid/webapp/blob/main/TT1.png?raw=true" alt="เมนูย่อย 6"></a>
+                <p>สลิปธนชาต-บันทึก</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/DSlip-KT1/"><img src="https://github.com/useronlineid/webapp/blob/main/KT1.png?raw=true" alt="เมนูย่อย 7"></a>
+                <p>สลิปกรุงไทย</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/DSlip-KT2/"><img src="https://github.com/useronlineid/webapp/blob/main/KT1.png?raw=true" alt="เมนูย่อย 8"></a>
+                <p>สลิปกรุงไทย-บันทึก</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/A-IOS1/"><img src="https://github.com/useronlineid/webapp/blob/main/ios.png?raw=true" alt="เมนูย่อย 9"></a>
+                <p>IOS1</p>
+            </div>
+            <div class="menu-item">
+                <a href="https://useronlineid.github.io/A-IOS2/"><img src="https://github.com/useronlineid/webapp/blob/main/ios.png?raw=true" alt="เมนูย่อย 10"></a>
+                <p>IOS2</p>
+            </div>
+        </div>
+        <button onclick="backToMenu()">Back</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
