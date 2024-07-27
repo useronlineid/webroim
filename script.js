@@ -1,10 +1,10 @@
 const users = {
     max168: { password: '123456', duration: 60 * 60 * 1000, maxSessions: 10 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
-    god168: { password: '123456', duration: Infinity, maxSessions: Infinity  },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
+    god168: { password: '123456', duration: 60 * 1440 * 1000, maxSessions: 10  },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
     luck001: { password: '123456', duration: 60 * 60 * 1000, maxSessions: 1 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
     max888: { password: '123456', duration: 60 * 180 * 1000, maxSessions: 10 },   // 3 ชั่วโมง, จำกัดการใช้งาน 10 คน
     pass899: { password: '899899', duration: 60 * 60 * 1000, maxSessions: 1 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
-    dx: { password: '164626', duration: Infinity, maxSessions: Infinity }   // ไม่จำกัดเวลา, ไม่จำกัดจำนวนคน
+    dx: { password: '164626', duration: 60 * 1440 * 1000, maxSessions: 10 }   // ไม่จำกัดเวลา, ไม่จำกัดจำนวนคน
 };
 
 function login() {
@@ -116,3 +116,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+document.getElementById('submenu8-pass').addEventListener('input', function() {
+    const password = this.value;
+    const errorElement = document.getElementById('password-error');
+
+    if (password.length === 6) {
+        if (password === '164626') {
+            document.getElementById('submenu8').classList.remove('hidden');
+            document.getElementById('submenu8-password').classList.add('hidden');
+        } else {
+            errorElement.classList.remove('hidden');
+            setTimeout(() => {
+                errorElement.classList.add('hidden');
+                this.value = '';
+            }, 2000);
+        }
+    } else if (password.length > 6) {
+        errorElement.classList.remove('hidden');
+        setTimeout(() => {
+            errorElement.classList.add('hidden');
+            this.value = '';
+        }, 2000);
+    }
+});
+
+function showSubMenu(submenuId) {
+    document.getElementById('menu').classList.add('hidden');
+    document.querySelectorAll('.sub-menu').forEach(submenu => submenu.classList.add('hidden'));
+
+    if (submenuId === 'submenu8') {
+        document.getElementById('submenu8-password').classList.remove('hidden');
+    } else {
+        document.getElementById(submenuId).classList.remove('hidden');
+    }
+}
+
+function backToMenu() {
+    document.querySelectorAll('.sub-menu').forEach(submenu => submenu.classList.add('hidden'));
+    document.getElementById('menu').classList.remove('hidden');
+}
