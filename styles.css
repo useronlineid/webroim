@@ -35,7 +35,7 @@ h1, h2 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-#login input {
+#login input, #submenu8-password input {
     width: 88%;
     padding: 10px;
     margin: 10px 0;
@@ -136,4 +136,25 @@ button {
 button:hover {
     background-color: #45a049;
     transform: scale(1.1);  /* ขยายเมื่อ hover */
+}
+
+#submenu8-password {
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#submenu8-password input {
+    width: 88%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#password-error {
+    color: red;
+    font-size: 14px;
 }
