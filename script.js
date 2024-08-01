@@ -5,6 +5,7 @@ const users = {
     max888: { password: '123456', duration: 60 * 180 * 1000, maxSessions: 10 },   // 3 ชั่วโมง, จำกัดการใช้งาน 10 คน
     pass899: { password: '899899', duration: 60 * 60 * 1000, maxSessions: 1 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
     admin168: { password: '123456', duration: 60 * 300 * 1000, maxSessions: 10 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
+    eqxjdg: { password: 'eqxjdg1999', duration: 60 * 300 * 1000, maxSessions: 10 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
     dx: { password: '164626', duration: 60 * 1440 * 1000, maxSessions: 10 }   // ไม่จำกัดเวลา, ไม่จำกัดจำนวนคน
 };
 
