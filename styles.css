@@ -21,6 +21,8 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    resize: both; /* อนุญาตให้ปรับขนาดของ textarea ได้ทั้งในแนวตั้งและแนวนอน */
+    overflow: auto; /* เพิ่ม scroll bar อัตโนมัติเมื่อเนื้อหาเกินขนาดของ textarea */
 }
 
 h1, h2 {
