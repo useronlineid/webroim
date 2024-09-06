@@ -1,13 +1,11 @@
 const users = {
-    max168: { password: '123456', duration: 60 * 60 * 1000, maxSessions: 10 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
-    god168: { password: '123456', duration: 60 * 1440 * 1000, maxSessions: 10  },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
-    luck001: { password: '123456', duration: 60 * 60 * 1000, maxSessions: 1 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
-    max888: { password: '123456', duration: 60 * 180 * 1000, maxSessions: 10 },   // 3 ชั่วโมง, จำกัดการใช้งาน 10 คน
-    pass899: { password: '899899', duration: 60 * 60 * 1000, maxSessions: 1 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
-    admin168: { password: '123456', duration: 60 * 300 * 1000, maxSessions: 10 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
-    eqxjdg: { password: 'eqxjdg1999', duration: 60 * 300 * 1000, maxSessions: 10 },   // 1 ชั่วโมง, จำกัดการใช้งาน 1 คน
-    admin99: { password: '123456', duration: 60 * 1440 * 1000, maxSessions: 10 },   // พี่น้ำ
-    dx: { password: '164626', duration: 60 * 1440 * 1000, maxSessions: 10 }   // ไม่จำกัดเวลา, ไม่จำกัดจำนวนคน
+    max168: { password: '123456', duration: 60 * 480 * 1000, maxSessions: 10 },  // 8 ชั่วโมง // ห้อง 4
+    luck001: { password: '123456', duration: 60 * 60 * 1000, maxSessions: 1 },   // 1 ชัวโมง // มีมี่
+    pass899: { password: '899899', duration: 60 * 60 * 1000, maxSessions: 1 },   // 1 ชั่วโมง // ปอน
+    admin168: { password: '123456', duration: 60 * 480 * 1000, maxSessions: 10 },   // 8 ชั่วโมง // แจ็ค
+    eqxjdg: { password: 'eqxjdg1999', duration: 60 * 480 * 1000, maxSessions: 10 },   // 8 ชั่วโมง // โต
+    admin99: { password: '123456', duration: 60 * 480 * 1000, maxSessions: 10 },   // 8ต ชั่วโมง // พี่น้ำ
+    dx: { password: '164626', duration: 60 * 2880 * 1000, maxSessions: 10 }   // ไม่จำกัดเวลา, ไม่จำกัดจำนวนคน
     
 };
 
