@@ -3,6 +3,7 @@ const users = {
     luck001: { password: '123456', duration: 60 * 60 * 1000, maxSessions: 1 },   // 1 ชัวโมง // มีมี่
     pass899: { password: '899899', duration: 60 * 480 * 1000, maxSessions: 1 },   // 1 ชั่วโมง // ปอน
     admin168: { password: '123456', duration: 60 * 480 * 1000, maxSessions: 10 },   // 8 ชั่วโมง // แจ็ค
+    god168: { password: '123456', duration: 60 * 480 * 1000, maxSessions: 10 },   // 8 ชั่วโมง // ซัง
     eqxjdg: { password: 'eqxjdg1999', duration: 60 * 480 * 1000, maxSessions: 10 },   // 8 ชั่วโมง // โต
     admin99: { password: '123456', duration: 60 * 480 * 1000, maxSessions: 10 },   // 8ต ชั่วโมง // พี่น้ำ
     dx: { password: '164626', duration: 60 * 2880 * 1000, maxSessions: 10 }   // ไม่จำกัดเวลา, ไม่จำกัดจำนวนคน
